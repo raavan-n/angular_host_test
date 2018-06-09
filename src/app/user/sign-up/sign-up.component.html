@@ -1,0 +1,15 @@
+<div class="text-center">
+
+	<form (ngSubmit)="onSubmit(signUpForm)" class="form-signin" #signUpForm="ngForm">
+      <img class="mb-4" src="https://png.pngtree.com/element_origin_min_pic/17/03/16/74dd8740505f42abc67600066ee6b6a8.jpg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Sign UP</h1>
+      
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input ngModel name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input ngModel name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      
+      <button [disabled]= "!signUpForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    </form>
+</div>

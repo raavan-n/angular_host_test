@@ -1,0 +1,73 @@
+<!-- <h1>{{users.email}}</h1> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/">mCart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/user/signin">Sign In</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user/signup">Sign Up</a>
+    </li>
+    <li class="nav-item mr-1">
+      <button class="btn btn-danger" type="button" (click)="signOut()">Log Out</button>
+    </li>
+    <li class="nav-item ">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
+        <i class="fas fa-shopping-cart"></i> Cart
+      </button>
+    </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+
+<div class="container-fluid">
+  
+  <!-- <h1>A specific item:</h1>
+
+  <h3>{{ (Item | async)?.company }}</h3>
+  <p>{{ (Item | async)?.price }}</p> -->
+
+  <div>
+    <h3>Search</h3>
+    <form>
+      <div class="form-group" id="filter">
+        <input type="text" class="form-control" name="term" [(ngModel)] = "term" />
+      </div>
+    </form>
+  </div>
+  
+
+	<!-- <div class="row"> -->
+
+    <div class="row">
+      <div class="card bg-light m-3" style="max-width: 18rem;" *ngFor="let item of items | async | filter:term">
+        <!-- <button class="btn btn-danger" type="button" (click)="getItem(item.id)">Show Item</button><br/> -->
+        <img class="card-img-top img-fluid" src="{{item.data.imgLink}}" alt="Card image" style="max-width: 70%; height: auto;">
+        <div class="card-body">
+          <h4 class="card-title">{{item.data.company}}</h4>
+          <p class="card-text">{{item.data.pName}} <br> {{item.data.price}}$</p>
+          <button (click)="addToCart(item.id)" class="btn btn-primary"><i class="fas fa-plus"></i> Add to cart</button>
+          <!-- [routerLink]="['/products/cart']" [queryParams]="{id:item.id}" -->
+        </div>
+      </div>
+    </div>
+			
+	<!-- </div> -->
+
+
+	
+</div>
+<app-cart [items]="items"></app-cart>
+<router-outlet></router-outlet>
+
+<!-- <button (click)="signOut()">Sing Out</button> -->

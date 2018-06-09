@@ -1,0 +1,25 @@
+ <div class="card mb-3" id="user">
+	<div class="card-header">
+	  <i class="fa fa-area-chart"></i> Users
+	</div>
+
+	<div class="card-body">
+	  <!-- <canvas id="myAreaChart" width="100%" height="30"></canvas> -->
+	  
+	  <div class="row">
+	    <div class="card bg-light m-3" style="width: 18rem;" *ngFor=" let user of users | async">
+	      <!-- <button class="btn btn-danger" type="button" (click)="getItem(item.id)">Show Item</button><br/> -->
+	      <img class="card-img-top img-fluid" src="{{user.data.photoURL}}" alt="Card image" style="max-width: 70%; height: auto;">
+	      <div class="card-body">
+	        <h4 class="card-title">{{user.data.displayName}}</h4>
+	        <p class="card-text" *ngIf="user.data.role == 'a'" >Admin <br> {{user.data.email}}</p>
+	        <p class="card-text" *ngIf="user.data.role == 'n'" >User <br> {{user.data.email}}</p>
+	        <!-- <button (click)="addToCart(item.id)" class="btn btn-primary"><i class="fas fa-plus"></i> Add to cart</button> -->
+	        <!-- <button (click)="deleteUser(user.id)" class="btn btn-danger"><i class="fas fa-minus"></i> Delete</button> -->
+	      </div>
+	    </div>
+	  </div>
+
+	</div>
+
+	</div>

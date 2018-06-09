@@ -1,0 +1,58 @@
+<div class="card mb-3">
+
+  <div class="card-header">
+    <i class="fa fa-area-chart"></i> Add new product
+  </div>
+
+  <div class="card-body">
+    <!-- <canvas id="myAreaChart" width="100%" height="30"></canvas> -->
+    
+    <form class="row">
+    <div class="form-group col">
+      <label for="company">Company</label>
+      <input type="company" class="form-control" id="company" name="company" [(ngModel)]="company">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="imgLink">Link to image</label>
+      <input type="imgLink" class="form-control" id="imgLink" name="imgLink" [(ngModel)]="imgLink">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="pName">Product Name</label>
+      <input type="pName" class="form-control" id="pName" name="pName" [(ngModel)]="pName">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="price">Price</label>
+      <input type="price" class="form-control" id="price" name="price" [(ngModel)]="price">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addNewProduct()">Submit</button>
+  </form>
+
+  </div>
+
+</div>
+
+<div class="card mb-3">
+
+  <div class="card-header">
+    <i class="fa fa-area-chart"></i> Products available today
+  </div>
+
+  <div class="card-body">
+    <!-- <canvas id="myAreaChart" width="100%" height="30"></canvas> -->
+    
+    <div class="row">
+      <div class="card bg-light m-3" style="max-width: 18rem;" *ngFor=" let item of items | async | filter:term">
+        <!-- <button class="btn btn-danger" type="button" (click)="getItem(item.id)">Show Item</button><br/> -->
+        <img class="card-img-top img-fluid" src="{{item.data.imgLink}}" alt="Card image" style="max-width: 70%; height: auto;">
+        <div class="card-body">
+          <h4 class="card-title">{{item.data.company}}</h4>
+          <p class="card-text">{{item.data.pName}} <br> {{item.data.price}} $</p>
+          <!-- <button (click)="addToCart(item.id)" class="btn btn-primary"><i class="fas fa-plus"></i> Add to cart</button> -->
+          <button (click)="deleteItem(item.id)" class="btn btn-danger"><i class="fas fa-minus"></i> Delete</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
