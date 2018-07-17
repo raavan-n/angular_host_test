@@ -1,3 +1,5 @@
+# To know how I developed this project visit the Medium link below
+[How to create E-Commerce application using Angular and Firebase Cloud Firestore — Part 1](https://medium.com/@nikhilbhandarkar1998/how-to-create-e-commerce-application-using-angular-and-firebase-cloud-firestore-part-1-f4e2cba38a34)
 # Cart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
